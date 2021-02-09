@@ -1,0 +1,33 @@
+{
+  "name": "phe-phim-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "CDKaisokuvn <chu.duong.dev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "ioredis": "^4.22.0",
+    "kue": "^0.11.6",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.10.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "build": "babel -d ./build ./src -s",
+    "start": "npm run clean && npm run build && node build/index.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.13",
+    "eslint": "^7.19.0"
+  }
+}
