@@ -27,7 +27,7 @@ export async function main() {
     app.get("/api/v1/service-movie/:id", async (req, res, next) => {
         try {
             const { id } = req.params;
-            const movie = await Movie.find(id);
+            const movie = await Movie.findById(id);
             if (!movie) {
                 throw new HttpError(`Could not find movie with id ${id}`, 404);
             }

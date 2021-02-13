@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/models/index.js"],"names":[],"mappings":";;;;;;;;;;;;AAAA","sourcesContent":["import { Movie } from \"./Movie\";\r\n\r\nexport { Movie };\r\n"],"file":"index.js"}

@@ -54,9 +54,11 @@ export async function getListMovies(page) {
 }
 
 export async function getMovieSrc(movie) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
 
     const page = await browser.newPage();
+
+    
 
     console.log("Start");
     await page.goto(movie.link, {
