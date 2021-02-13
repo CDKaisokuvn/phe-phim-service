@@ -16,6 +16,8 @@ import { Movie } from "./models";
 //     //await getMovieSrc(movies[1]);
 
 //     // const movie = await Movie.findById(movies[1]._id);
+
+
 //     // console.log(movie);
 // }
 
