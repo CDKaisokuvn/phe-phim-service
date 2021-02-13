@@ -5,16 +5,15 @@ import kue from "kue";
 import { dbConnect, env } from "../configs";
 import { Movie } from "../models";
 
-const queue = kue.createQueue({
-    redis: {
-        createClientFactory: function () {
-            return new Redis();
-        },
-    },
-});
-
 export async function crawlMovies() {
-    console.log(env.uri);
+    const queue = kue.createQueue({
+        redis: {
+            createClientFactory: function () {
+                return new Redis();
+            },
+        },
+    });
+
     await dbConnect(env.uri);
     for (let i = 1; i <= 270; i++) {
         const job = queue
