@@ -66,7 +66,7 @@ function _main() {
                         _context.prev = 0;
                         id = req.params.id;
                         _context.next = 4;
-                        return _models.Movie.find(id);
+                        return _models.Movie.findById(id);
 
                       case 4:
                         movie = _context.sent;

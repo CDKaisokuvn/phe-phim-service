@@ -27,27 +27,25 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var queue = _kue["default"].createQueue({
-  redis: {
-    createClientFactory: function createClientFactory() {
-      return new _ioredis["default"]();
-    }
-  }
-});
-
 function crawlMovies() {
   return _crawlMovies.apply(this, arguments);
 }
 
 function _crawlMovies() {
   _crawlMovies = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-    var _loop, i;
+    var queue, _loop, i;
 
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            console.log(_configs.env.uri);
+            queue = _kue["default"].createQueue({
+              redis: {
+                createClientFactory: function createClientFactory() {
+                  return new _ioredis["default"]();
+                }
+              }
+            });
             _context3.next = 3;
             return (0, _configs.dbConnect)(_configs.env.uri);
 
