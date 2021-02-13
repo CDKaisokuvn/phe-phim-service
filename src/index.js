@@ -3,6 +3,7 @@ import { main } from "./server/index";
 import { crawlMovies, getMovieSrc } from "./services";
 
 import { dbConnect, env, dbClean } from "./configs";
+import regeneratorRuntime from "regenerator-runtime";
 import { Movie } from "./models";
 
 // async function testDB() {
