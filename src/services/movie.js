@@ -58,6 +58,8 @@ export async function getMovieSrc(movie) {
 
     const page = await browser.newPage();
 
+    
+
     console.log("Start");
     await page.goto(movie.link, {
         waitUntil: "networkidle2",
