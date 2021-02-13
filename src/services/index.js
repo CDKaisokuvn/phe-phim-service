@@ -1,4 +1,4 @@
-import { getListMovies, updateMovieDetail } from "./movie";
+import { getListMovies, updateMovieDetail, getMovieSrc } from "./movie";
 import Redis from "ioredis";
 import kue from "kue";
 
@@ -14,6 +14,7 @@ const queue = kue.createQueue({
 });
 
 export async function crawlMovies() {
+    console.log(env.uri);
     await dbConnect(env.uri);
     for (let i = 1; i <= 270; i++) {
         const job = queue
@@ -36,3 +37,5 @@ export async function crawlMovies() {
         done();
     });
 }
+
+export { getMovieSrc };
